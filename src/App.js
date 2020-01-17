@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
 import ProjectList from './components/ProjectList'
+import ProjectDetails from './components/ProjectDetails'
 
 function App() {
   const [projects, setProjects] = useState([])
@@ -18,8 +19,11 @@ function App() {
   }, [])
 
   return (
-    <div>      
-      <Route exact path='/' render={() =><ProjectList projects={projects} />} />
+    <div>
+      <Switch>
+        <Route path='/:id' render={() => <ProjectDetails />} />
+        <Route path='/' render={() => <ProjectList projects={projects} />} />
+      </Switch>
     </div>
   );
 }
