@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
+import { Switch, Route, useHistory } from 'react-router-dom'
+import { Container, Navbar, NavbarBrand } from 'reactstrap'
 
 import ProjectList from './components/ProjectList'
 import ProjectDetails from './components/ProjectDetails'
 
 function App() {
+  const history = useHistory()
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
@@ -20,10 +22,15 @@ function App() {
 
   return (
     <div>
-      <Switch>
-        <Route path='/:id' render={() => <ProjectDetails />} />
-        <Route path='/' render={() => <ProjectList projects={projects} />} />
-      </Switch>
+      <Navbar color='light'>
+        <NavbarBrand onClick={() => history.push('/')}>Projects</NavbarBrand>
+      </Navbar>
+      <Container>
+        <Switch>
+          <Route path='/:id' render={() => <ProjectDetails />} />
+          <Route path='/' render={() => <ProjectList projects={projects} />} />
+        </Switch>
+      </Container>
     </div>
   );
 }
