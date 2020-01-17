@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
-import { Container, Navbar, NavbarBrand } from 'reactstrap'
+import { Container, Navbar, NavbarBrand as ReactNavbarBrand } from 'reactstrap'
 
 import ProjectList from './components/ProjectList'
 import ProjectDetails from './components/ProjectDetails'
+
+const NavbarBrand = styled(ReactNavbarBrand)`
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 function App() {
   const history = useHistory()

@@ -4,7 +4,7 @@ import { Link as ReactLink } from 'react-router-dom'
 import { Row, Col, Card as ReactCard, CardBody, CardText } from 'reactstrap'
 
 const Link = styled(ReactLink)`
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 `
 
 const Card = styled(ReactCard)`
